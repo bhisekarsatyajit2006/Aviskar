@@ -1,0 +1,122 @@
+/* ===== PROGRAMS ===== */
+.programs {
+  background: var(--bg-light);
+}
+
+.prog-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.prog-card {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.prog-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--pc);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.prog-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.prog-card:hover::before {
+  transform: scaleX(1);
+}
+
+.prog-card-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--pb);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: var(--pc);
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+}
+
+.prog-card:hover .prog-card-icon {
+  background: var(--pc);
+  color: white;
+  transform: scale(1.1);
+}
+
+.prog-card-emoji {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.prog-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.prog-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-medium);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.prog-card-arrow {
+  width: 36px;
+  height: 36px;
+  background: var(--pb);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: var(--pc);
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.prog-card:hover .prog-card-arrow {
+  background: var(--pc);
+  color: white;
+  transform: translateX(4px);
+}
+
+.prog-cta {
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .prog-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .prog-cards {
+    grid-template-columns: 1fr;
+  }
+}

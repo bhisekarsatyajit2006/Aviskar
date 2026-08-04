@@ -1,0 +1,116 @@
+.mission-vision {
+  background: var(--bg-mint);
+  position: relative;
+  overflow: hidden;
+}
+
+.mv-bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(44,110,73,0.05) 1px, transparent 0);
+  background-size: 30px 30px;
+}
+
+.mv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.mv-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.mv-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.mv-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.mv-card-header h3 {
+  font-size: 1.5rem;
+  color: var(--text-dark);
+}
+
+.mv-icon-wrap {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, rgba(44,110,73,0.12), rgba(44,110,73,0.04));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.mv-icon-wrap svg {
+  width: 24px;
+  height: 24px;
+}
+
+.mv-icon-blue {
+  background: linear-gradient(135deg, rgba(74,144,217,0.12), rgba(74,144,217,0.04));
+  color: var(--secondary);
+}
+
+.mv-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mv-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--text-medium);
+  line-height: 1.7;
+}
+
+.mv-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+.mv-bullet-blue {
+  background: var(--secondary);
+}
+
+.mv-mission {
+  border-top: 4px solid var(--primary);
+}
+
+.mv-vision {
+  border-top: 4px solid var(--secondary);
+}
+
+@media (max-width: 768px) {
+  .mv-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mv-card {
+    padding: 26px;
+  }
+}

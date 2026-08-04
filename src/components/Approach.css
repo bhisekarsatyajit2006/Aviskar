@@ -1,0 +1,138 @@
+.approach {
+  background: var(--bg-white);
+}
+
+.approach-strategies {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+.approach-card {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 30px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.approach-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient);
+}
+
+.approach-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.approach-number {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgba(44,110,73,0.12);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.approach-title {
+  font-size: 1.05rem;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.approach-desc {
+  font-size: 0.9rem;
+  color: var(--text-medium);
+  line-height: 1.7;
+}
+
+/* Experience Section */
+.approach-experience {
+  background: linear-gradient(135deg, rgba(44,110,73,0.04), rgba(74,144,217,0.04));
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  border: 1px solid rgba(44,110,73,0.1);
+}
+
+.approach-exp-header {
+  margin-bottom: 28px;
+}
+
+.approach-exp-header h3 {
+  font-size: 1.4rem;
+  color: var(--text-dark);
+  margin-top: 8px;
+}
+
+.approach-exp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.approach-exp-card {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s;
+}
+
+.approach-exp-card:hover {
+  transform: translateX(6px);
+}
+
+.approach-exp-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gradient);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.approach-exp-card h4 {
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.approach-exp-card p {
+  font-size: 0.875rem;
+  color: var(--text-medium);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .approach-strategies {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .approach-strategies {
+    grid-template-columns: 1fr;
+  }
+
+  .approach-exp-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .approach-experience {
+    padding: 24px;
+  }
+}

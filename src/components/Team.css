@@ -1,0 +1,151 @@
+.team {
+  background: var(--bg-mint);
+  position: relative;
+  overflow: hidden;
+}
+
+.team-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 10% 50%, rgba(44,110,73,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 20%, rgba(74,144,217,0.06) 0%, transparent 50%);
+}
+
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.team-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.team-avatar {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 auto 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.team-name {
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.team-position {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 14px;
+  background: rgba(44,110,73,0.08);
+  padding: 4px 14px;
+  border-radius: 50px;
+}
+
+.team-desc {
+  font-size: 0.9rem;
+  color: var(--text-medium);
+  line-height: 1.7;
+}
+
+/* Governance */
+.team-governance {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  z-index: 1;
+}
+
+.team-governance h3 {
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.team-governance > p {
+  color: var(--text-medium);
+  line-height: 1.8;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+  max-width: 700px;
+}
+
+.governance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.governance-item {
+  background: var(--bg-mint);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  border-left: 4px solid var(--primary);
+}
+
+.governance-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-light);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.governance-value {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+@media (max-width: 768px) {
+  .team-members {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto 50px;
+  }
+
+  .governance-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .team-governance {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .governance-grid {
+    grid-template-columns: 1fr;
+  }
+}

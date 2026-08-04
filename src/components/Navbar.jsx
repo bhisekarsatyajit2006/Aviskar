@@ -1,0 +1,79 @@
+import { useState, useEffect } from 'react';
+import { FaBars, FaTimes, FaLeaf, FaHeart } from 'react-icons/fa';
+import './Navbar.css';
+
+const navLinks = [
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Programs', href: '#programs' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'Volunteer', href: '#get-involved' },
+  { label: 'Contact', href: '#contact' },
+];
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState('#home');
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (href) => {
+    setActiveLink(href);
+    setMenuOpen(false);
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
+      <div className="container navbar-inner">
+        <a href="#home" className="navbar-logo" onClick={() => handleNavClick('#home')}>
+          <div className="logo-icon">
+            <FaLeaf />
+          </div>
+          <div className="logo-text">
+            <span className="logo-main">AVISKAR</span>
+            <span className="logo-sub">FOUNDATION</span>
+          </div>
+        </a>
+
+        <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className={`nav-link ${activeLink === link.href ? 'active' : ''}`}
+                onClick={() => handleNavClick(link.href)}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a
+              href="#get-involved"
+              className="navbar-donate-btn"
+              onClick={() => handleNavClick('#get-involved')}
+            >
+              <FaHeart />
+              Donate Now
+            </a>
+          </li>
+        </ul>
+
+        <button
+          className="navbar-toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
+    </nav>
+  );
+}
