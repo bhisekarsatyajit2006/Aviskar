@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaWhatsapp } from 'react-icons/fa';
 import './Contact.css';
 
 export default function Contact() {
@@ -41,10 +41,23 @@ export default function Contact() {
                 </div>
               </div>
               <div className="contact-info-item">
-                <div className="contact-info-icon contact-info-icon--orange"><FaPhone /></div>
+                <div className="contact-info-icon contact-info-icon--whatsapp" style={{ background: '#e8f5e9', color: '#25D366' }}>
+                  <FaWhatsapp />
+                </div>
                 <div>
-                  <h4>Call Us</h4>
-                  <p>+91 7020143007</p>
+                  <h4>Call / WhatsApp Us</h4>
+                  <p>
+                    <a
+                      href="https://wa.me/918983690581?text=Hello%20AVISKAR%20FOUNDATION"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: 'inherit', fontWeight: 600 }}
+                    >
+                      +91 89836 90581
+                    </a>
+                    {' · '}
+                    <span>+91 7020143007</span>
+                  </p>
                 </div>
               </div>
               <div className="contact-info-item">

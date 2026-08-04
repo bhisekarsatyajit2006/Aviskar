@@ -1,4 +1,4 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 import './Footer.css';
 
 const quickLinks = [
@@ -39,7 +39,14 @@ export default function Footer() {
             </p>
             <div className="footer-contact-mini">
               <div><FaMapMarkerAlt /> Amravati, Maharashtra – 444606</div>
-              <div><FaPhone /> +91 7020143007</div>
+              <div>
+                <FaWhatsapp style={{ color: '#25D366' }} />
+                <a href="https://wa.me/918983690581" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
+                  +91 89836 90581
+                </a>
+                {' / '}
+                <FaPhone /> +91 7020143007
+              </div>
               <div><FaEnvelope /> aviskarfoundation1120@gmail.com</div>
             </div>
             <div className="footer-socials">

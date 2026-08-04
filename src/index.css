@@ -302,26 +302,53 @@ button {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
 
-/* ===== FLOATING BUTTON ===== */
-.float-donate-btn {
+/* ===== FLOATING ACTION BUTTONS ===== */
+.floating-actions {
   position: fixed;
   bottom: 28px;
   right: 28px;
   z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.float-whatsapp-btn {
+  background: #25D366;
+  color: white;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.85rem;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.float-whatsapp-btn:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 14px 32px rgba(37, 211, 102, 0.6);
+  background: #20ba5a;
+}
+
+.float-donate-btn {
   background: var(--gradient-secondary);
   color: white;
-  padding: 14px 24px;
+  padding: 12px 22px;
   border-radius: 50px;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   box-shadow: var(--shadow-orange);
   cursor: pointer;
   border: none;
   display: flex;
   align-items: center;
   gap: 8px;
-  animate: pulse-green 2s infinite;
   transition: all var(--transition);
 }
 
@@ -343,5 +370,16 @@ button {
   .btn {
     padding: 12px 24px;
     font-size: 0.9rem;
+  }
+
+  .floating-actions {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .float-whatsapp-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
   }
 }

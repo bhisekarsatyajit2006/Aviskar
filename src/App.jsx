@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { FaWhatsapp } from 'react-icons/fa';
 import './index.css';
 import './App.css';
 
@@ -64,10 +65,23 @@ function App() {
       </main>
       <Footer />
 
-      {/* Floating Donate Button */}
-      <button className="float-donate-btn" onClick={scrollToContact} aria-label="Donate Now">
-        ❤️ Donate
-      </button>
+      {/* Floating Action Buttons */}
+      <div className="floating-actions">
+        <a
+          href="https://wa.me/918983690581?text=Hello%20AVISKAR%20FOUNDATION%2C%20I%20would%20like%20to%20know%20more%20about%20your%20programs."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="float-whatsapp-btn"
+          aria-label="Chat on WhatsApp (+91 89836 90581)"
+          title="Chat with us on WhatsApp"
+        >
+          <FaWhatsapp />
+        </a>
+
+        <button className="float-donate-btn" onClick={scrollToContact} aria-label="Donate Now">
+          ❤️ Donate
+        </button>
+      </div>
     </div>
   );
 }
