@@ -8,7 +8,7 @@ export default function About() {
         <div className="about-grid">
           <div className="about-img-col reveal-left">
             <div className="about-img-wrap">
-              <img src="/about-volunteers.png" alt="AVISKAR Foundation volunteers with children" className="about-img" />
+              <img src="/img2.jpg" alt="AVISKAR Foundation team and volunteers" className="about-img" />
               <div className="about-img-overlay">
                 <div className="about-img-stat">
                   <strong>5+</strong>

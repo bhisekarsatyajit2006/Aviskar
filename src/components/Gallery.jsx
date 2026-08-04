@@ -3,12 +3,12 @@ import { FaArrowRight, FaExpand } from 'react-icons/fa';
 import './Gallery.css';
 
 const photos = [
-  { src: '/gallery-students.png', alt: 'Children in education program', label: 'Education Drive' },
-  { src: '/gallery-medical.png', alt: 'Free medical camp', label: 'Medical Camp' },
-  { src: '/gallery-trees.png', alt: 'Tree plantation activity', label: 'Tree Plantation' },
-  { src: '/gallery-women.png', alt: 'Women skill training', label: 'Women Training' },
-  { src: '/about-volunteers.png', alt: 'Volunteers with children', label: 'Volunteer Event' },
-  { src: '/hero-bg.png', alt: 'Community development', label: 'Community Service' },
+  { src: '/img3.jpg', alt: 'Education Drive & Books Distribution', label: 'Education Drive' },
+  { src: '/img4.jpg', alt: 'Free Medical Health Camp', label: 'Medical Camp' },
+  { src: '/img5.jpg', alt: 'Tree Plantation Activity', label: 'Tree Plantation' },
+  { src: '/img6.jpg', alt: 'Women Skill Training & Empowerment', label: 'Women Empowerment' },
+  { src: '/img1.jpg', alt: 'Volunteer Group & Community Service', label: 'Volunteer Event' },
+  { src: '/img2.jpg', alt: 'Community Awareness & Development', label: 'Community Service' },
 ];
 
 export default function Gallery() {
@@ -26,7 +26,7 @@ export default function Gallery() {
             <span className="line-long" />
           </div>
           <p className="section-subtitle">
-            Every photo tells a story of hope, community, and transformation.
+            Every photo tells a story of hope, community, and real transformation.
           </p>
         </div>
 
