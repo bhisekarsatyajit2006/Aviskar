@@ -78,7 +78,7 @@ export default function Hero() {
         <div className="hero-right">
           <div className="hero-img-frame">
             <div className="hero-img-inner">
-              <img src="/hero-bg.png" alt="Smiling child with school bag" className="hero-img" />
+              <img src="/img1.jpg" alt="Aviskar Foundation Floating Card Image" className="hero-img" />
             </div>
             <div className="hero-img-badge">
               <span className="hero-img-badge-icon">🏆</span>
