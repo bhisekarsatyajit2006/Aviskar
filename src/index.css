@@ -37,7 +37,10 @@
   box-sizing: border-box;
 }
 
-html {
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
   scroll-behavior: smooth;
   font-size: 16px;
 }
@@ -47,6 +50,12 @@ body {
   color: var(--text-dark);
   background-color: var(--bg);
   line-height: 1.6;
+  position: relative;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 }
 
@@ -83,6 +92,7 @@ button {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+  width: 100%;
 }
 
 .section-padding {
@@ -249,10 +259,10 @@ button {
   50% { box-shadow: 0 0 0 16px rgba(14, 122, 82, 0); }
 }
 
-/* Scroll reveal */
+/* Scroll reveal - prevent horizontal offset scroll triggers */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(30px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
@@ -263,24 +273,24 @@ button {
 
 .reveal-left {
   opacity: 0;
-  transform: translateX(-50px);
+  transform: translateY(30px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .reveal-left.visible {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 .reveal-right {
   opacity: 0;
-  transform: translateX(50px);
+  transform: translateY(30px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .reveal-right.visible {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 /* Stagger reveal */
@@ -363,6 +373,10 @@ button {
     --section-gap: 64px;
   }
 
+  .container {
+    padding: 0 16px;
+  }
+
   .section-header {
     margin-bottom: 40px;
   }
@@ -378,8 +392,8 @@ button {
   }
 
   .float-whatsapp-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 1.6rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
   }
 }
