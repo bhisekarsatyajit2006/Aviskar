@@ -1,4 +1,4 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaLeaf, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
 import './Footer.css';
 
 const quickLinks = [
@@ -28,7 +28,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer-brand">
             <div className="footer-logo">
-              <div className="footer-logo-icon"><FaLeaf /></div>
+              <img src="/logo.png" alt="AVISKAR FOUNDATION Logo" className="footer-logo-img" />
               <div className="footer-logo-text">
                 <span className="footer-logo-main">AVISKAR</span>
                 <span className="footer-logo-sub">FOUNDATION</span>

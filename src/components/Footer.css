@@ -27,16 +27,11 @@
   gap: 12px;
 }
 
-.footer-logo-icon {
-  width: 42px;
-  height: 42px;
-  background: var(--gradient-primary);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 18px;
+.footer-logo-img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
 }
 
 .footer-logo-text {

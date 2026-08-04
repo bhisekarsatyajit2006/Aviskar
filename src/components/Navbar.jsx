@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FaBars, FaTimes, FaLeaf, FaHeart } from 'react-icons/fa';
+import { FaBars, FaTimes, FaHeart } from 'react-icons/fa';
 import './Navbar.css';
 
 const navLinks = [
@@ -33,9 +33,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container navbar-inner">
         <a href="#home" className="navbar-logo" onClick={() => handleNavClick('#home')}>
-          <div className="logo-icon">
-            <FaLeaf />
-          </div>
+          <img src="/logo.png" alt="AVISKAR FOUNDATION Logo" className="navbar-logo-img" />
           <div className="logo-text">
             <span className="logo-main">AVISKAR</span>
             <span className="logo-sub">FOUNDATION</span>
