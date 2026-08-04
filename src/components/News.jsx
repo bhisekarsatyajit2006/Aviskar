@@ -8,7 +8,7 @@ const news = [
     tagColor: '#dc2626',
     title: 'Free Medical Camp Reaches 200+ Patients in Amravati',
     excerpt: 'AVISKAR FOUNDATION organized a comprehensive health camp providing free consultations, medicines, and health check-ups to underprivileged families in rural Amravati.',
-    img: '/img4.jpg',
+    img: '/medicalcamp.jpg',
   },
   {
     date: 'June 2025',
@@ -24,7 +24,7 @@ const news = [
     tagColor: '#0E7A52',
     title: 'Book Distribution Drive Benefits 150 Slum Children',
     excerpt: 'Our education team distributed school bags, notebooks, and textbooks to 150 underprivileged children. The drive was accompanied by a career counseling session.',
-    img: '/img3.jpg',
+    img: '/bookdistribution.jpg',
   },
 ];
 

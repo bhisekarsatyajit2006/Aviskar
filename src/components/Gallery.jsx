@@ -3,8 +3,8 @@ import { FaArrowRight, FaExpand } from 'react-icons/fa';
 import './Gallery.css';
 
 const photos = [
-  { src: '/img3.jpg', alt: 'Education Drive & Books Distribution', label: 'Education Drive' },
-  { src: '/img4.jpg', alt: 'Free Medical Health Camp', label: 'Medical Camp' },
+  { src: '/bookdistribution.jpg', alt: 'Education Drive & Books Distribution', label: 'Book Distribution' },
+  { src: '/medicalcamp.jpg', alt: 'Free Medical Health Camp', label: 'Medical Camp' },
   { src: '/img5.jpg', alt: 'Tree Plantation Activity', label: 'Tree Plantation' },
   { src: '/img6.jpg', alt: 'Women Skill Training & Empowerment', label: 'Women Empowerment' },
   { src: '/img1.jpg', alt: 'Volunteer Group & Community Service', label: 'Volunteer Event' },
