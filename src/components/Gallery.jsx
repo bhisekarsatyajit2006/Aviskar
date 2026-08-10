@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FaArrowRight, FaExpand } from 'react-icons/fa';
 import './Gallery.css';
 
-const photos = [
+const mainPhotos = [
   { src: '/bookdistribution.jpg', alt: 'Education Drive & Books Distribution', label: 'Book Distribution' },
   { src: '/medicalcamp.jpg', alt: 'Free Medical Health Camp', label: 'Medical Camp' },
   { src: '/img5.jpg', alt: 'Tree Plantation Activity', label: 'Tree Plantation' },
@@ -31,7 +31,7 @@ export default function Gallery() {
         </div>
 
         <div className="gallery-grid reveal-stagger">
-          {photos.map((p, i) => (
+          {mainPhotos.map((p, i) => (
             <div
               className="gallery-item"
               key={i}
@@ -65,3 +65,5 @@ export default function Gallery() {
     </section>
   );
 }
+
+

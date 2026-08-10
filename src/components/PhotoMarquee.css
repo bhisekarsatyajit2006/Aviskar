@@ -1,0 +1,244 @@
+/* ===== PHOTO MARQUEE SECTION (BELOW HERO) ===== */
+.photo-marquee-section {
+  padding: 56px 0 68px 0;
+  background: var(--bg-light);
+  border-top: 1px solid rgba(14, 122, 82, 0.1);
+  border-bottom: 1px solid rgba(14, 122, 82, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-marquee-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.photo-marquee-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primary);
+  background: rgba(14, 122, 82, 0.12);
+  padding: 6px 18px;
+  border-radius: 30px;
+  margin-bottom: 12px;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: inline-block;
+  animation: pulse-green 2s infinite;
+}
+
+.photo-marquee-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.photo-marquee-subtitle {
+  font-size: 1rem;
+  color: var(--text-medium);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.photo-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 16px 0;
+}
+
+/* Smooth gradient edge mask for left & right fade */
+.photo-marquee-wrapper::before,
+.photo-marquee-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 140px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.photo-marquee-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-light) 0%, transparent 100%);
+}
+
+.photo-marquee-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-light) 0%, transparent 100%);
+}
+
+.photo-marquee-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: photoMarqueeScroll 45s linear infinite;
+  will-change: transform;
+}
+
+.photo-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.photo-marquee-card {
+  position: relative;
+  flex: 0 0 380px;
+  height: 265px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  background: #e2e8f0;
+}
+
+.photo-marquee-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: var(--shadow-md);
+}
+
+.photo-marquee-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.photo-marquee-card:hover img {
+  transform: scale(1.08);
+}
+
+.photo-marquee-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14, 122, 82, 0.9) 0%, rgba(0, 0, 0, 0.15) 75%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 18px 22px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-marquee-card:hover .photo-marquee-overlay {
+  opacity: 1;
+}
+
+.photo-marquee-overlay span {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.marquee-expand-icon {
+  color: white;
+  font-size: 1.15rem;
+}
+
+@keyframes photoMarqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Lightbox Modal */
+.photo-marquee-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.25s ease;
+  padding: 24px;
+}
+
+.photo-marquee-lightbox-inner {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.photo-marquee-lightbox-inner img {
+  border-radius: 16px;
+  max-height: 80vh;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.photo-marquee-lightbox-inner p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.photo-marquee-lightbox-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  color: var(--text-dark);
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .photo-marquee-section {
+    padding: 40px 0 48px 0;
+  }
+
+  .photo-marquee-card {
+    flex: 0 0 290px;
+    height: 200px;
+  }
+
+  .photo-marquee-wrapper::before,
+  .photo-marquee-wrapper::after {
+    width: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-marquee-card {
+    flex: 0 0 220px;
+    height: 155px;
+  }
+
+  .photo-marquee-wrapper::before,
+  .photo-marquee-wrapper::after {
+    width: 45px;
+  }
+}
+

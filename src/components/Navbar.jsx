@@ -35,8 +35,8 @@ export default function Navbar() {
         <a href="#home" className="navbar-logo" onClick={() => handleNavClick('#home')}>
           <img src="/logo.png" alt="AVISKAR FOUNDATION Logo" className="navbar-logo-img" />
           <div className="logo-text">
-            <span className="logo-main">AVISKAR</span>
-            <span className="logo-sub">FOUNDATION</span>
+            <span className="logo-main"></span>
+            <span className="logo-sub"></span>
           </div>
         </a>
 

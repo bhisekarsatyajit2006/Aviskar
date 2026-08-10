@@ -4,13 +4,22 @@ import './Contact.css';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
-  const [sent, setSent] = useState(false);
 
   const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const submit = (e) => {
     e.preventDefault();
-    setSent(true);
+
+    const text =
+      `*New Inquiry - AVISKAR FOUNDATION*\n\n` +
+      `👤 *Name:* ${form.name}\n` +
+      `📧 *Email:* ${form.email}\n` +
+      `📌 *Subject:* ${form.subject}\n` +
+      `💬 *Message:* ${form.message}`;
+
+    const whatsappUrl = `https://wa.me/917020143007?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, '_blank');
+
     setForm({ name: '', email: '', subject: '', message: '' });
   };
 
@@ -48,15 +57,13 @@ export default function Contact() {
                   <h4>Call / WhatsApp Us</h4>
                   <p>
                     <a
-                      href="https://wa.me/918983690581?text=Hello%20AVISKAR%20FOUNDATION"
+                      href="https://wa.me/917020143007?text=Hello%20AVISKAR%20FOUNDATION"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ color: 'inherit', fontWeight: 600 }}
                     >
-                      +91 89836 90581
+                      +91 70201 43007
                     </a>
-                    {' · '}
-                    <span>+91 7020143007</span>
                   </p>
                 </div>
               </div>
@@ -85,11 +92,6 @@ export default function Contact() {
           </div>
 
           <form className="contact-form reveal-right" onSubmit={submit}>
-            {sent && (
-              <div className="form-success">
-                ✅ Thank you! We'll be in touch soon.
-              </div>
-            )}
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="name">Full Name</label>
@@ -109,7 +111,7 @@ export default function Contact() {
               <textarea id="message" name="message" rows="5" placeholder="Tell us more..." value={form.message} onChange={handle} required />
             </div>
             <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-              Send Message
+              Send
             </button>
           </form>
         </div>

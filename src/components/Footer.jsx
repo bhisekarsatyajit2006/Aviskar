@@ -1,4 +1,4 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 import './Footer.css';
 
 const quickLinks = [
@@ -13,11 +13,11 @@ const quickLinks = [
 const programs = ['Education', 'Healthcare', 'Women Empowerment', 'Environment', 'Skill Development', 'Community Awareness'];
 
 const socials = [
-  { icon: <FaFacebook />, href: '#', label: 'Facebook' },
-  { icon: <FaInstagram />, href: '#', label: 'Instagram' },
-  { icon: <FaTwitter />, href: '#', label: 'Twitter' },
-  { icon: <FaLinkedin />, href: '#', label: 'LinkedIn' },
-  { icon: <FaYoutube />, href: '#', label: 'YouTube' },
+  {
+    icon: <FaInstagram />,
+    href: 'https://www.instagram.com/aviskar_foundation?igsh=OHRzNWkzam10ajE1',
+    label: 'Instagram',
+  },
 ];
 
 export default function Footer() {
@@ -41,17 +41,32 @@ export default function Footer() {
               <div><FaMapMarkerAlt /> Amravati, Maharashtra – 444606</div>
               <div>
                 <FaWhatsapp style={{ color: '#25D366' }} />
-                <a href="https://wa.me/918983690581" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
-                  +91 89836 90581
+                <a
+                  href="https://wa.me/917020143007?text=Hello%20AVISKAR%20FOUNDATION%2C%20I%20would%20like%20to%20know%20more%20about%20your%20programs."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: 'inherit', fontWeight: 600 }}
+                >
+                  +91 70201 43007
                 </a>
                 {' / '}
-                <FaPhone /> +91 7020143007
+                <FaPhone />
+                <a href="tel:+917020143007" style={{ color: 'inherit' }}>
+                  +91 70201 43007
+                </a>
               </div>
               <div><FaEnvelope /> aviskarfoundation1120@gmail.com</div>
             </div>
             <div className="footer-socials">
               {socials.map((s) => (
-                <a key={s.label} href={s.href} aria-label={s.label} className="footer-social-link">
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="footer-social-link"
+                >
                   {s.icon}
                 </a>
               ))}

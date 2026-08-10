@@ -5,6 +5,7 @@ import './App.css';
 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import PhotoMarquee from './components/PhotoMarquee';
 import About from './components/About';
 import Programs from './components/Programs';
 import Impact from './components/Impact';
@@ -29,18 +30,26 @@ function App() {
             }
           });
         },
-        { threshold: 0.1, rootMargin: '0px 0px -60px 0px', ...options }
+        { threshold: 0.05, rootMargin: '0px 0px 150px 0px', ...options }
       );
       els.forEach((el) => observer.observe(el));
       return observer;
     };
 
     const o1 = observe('.reveal, .reveal-left, .reveal-right');
-    const o2 = observe('.reveal-stagger', { threshold: 0.08 });
+    const o2 = observe('.reveal-stagger', { threshold: 0.05 });
+
+    // Fallback: Ensure all sections are visible even if observer is delayed or skipped
+    const fallbackTimer = setTimeout(() => {
+      document
+        .querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-stagger')
+        .forEach((el) => el.classList.add('visible'));
+    }, 600);
 
     return () => {
       o1.disconnect();
       o2.disconnect();
+      clearTimeout(fallbackTimer);
     };
   }, []);
 
@@ -54,6 +63,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <PhotoMarquee />
         <About />
         <Programs />
         <Impact />
@@ -68,12 +78,12 @@ function App() {
       {/* Floating Action Buttons */}
       <div className="floating-actions">
         <a
-          href="https://wa.me/918983690581?text=Hello%20AVISKAR%20FOUNDATION%2C%20I%20would%20like%20to%20know%20more%20about%20your%20programs."
+          href="https://wa.me/917020143007?text=Hello%20AVISKAR%20FOUNDATION%2C%20I%20would%20like%20to%20know%20more%20about%20your%20programs."
           target="_blank"
           rel="noopener noreferrer"
           className="float-whatsapp-btn"
-          aria-label="Chat on WhatsApp (+91 89836 90581)"
-          title="Chat with us on WhatsApp"
+          aria-label="Chat on WhatsApp (+91 70201 43007)"
+          title="Chat with us on WhatsApp (+91 70201 43007)"
         >
           <FaWhatsapp />
         </a>
