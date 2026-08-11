@@ -1,4 +1,4 @@
-import { FaInstagram, FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin, FaFacebook, FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 import './Footer.css';
 
 const quickLinks = [
@@ -17,6 +17,16 @@ const socials = [
     icon: <FaInstagram />,
     href: 'https://www.instagram.com/aviskar_foundation?igsh=OHRzNWkzam10ajE1',
     label: 'Instagram',
+  },
+  {
+    icon: <FaLinkedin />,
+    href: 'https://www.linkedin.com/in/aviskar-foundation-96b2ab410?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+    label: 'LinkedIn',
+  },
+  {
+    icon: <FaFacebook />,
+    href: 'https://www.facebook.com/share/1CeayCDALq/',
+    label: 'Facebook',
   },
 ];
 
