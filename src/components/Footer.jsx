@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { FaInstagram, FaLinkedin, FaFacebook, FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+import PrivacyPolicyModal from './PrivacyPolicyModal';
 import './Footer.css';
 
 const quickLinks = [
@@ -31,100 +33,116 @@ const socials = [
 ];
 
 export default function Footer() {
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
+
   return (
-    <footer className="footer">
-      <div className="footer-main">
-        <div className="container footer-grid">
-          {/* Brand */}
-          <div className="footer-brand">
-            <div className="footer-logo">
-              <img src="/logo.png" alt="AVISKAR FOUNDATION Logo" className="footer-logo-img" />
-              <div className="footer-logo-text">
-                <span className="footer-logo-main">AVISKAR</span>
-                <span className="footer-logo-sub">FOUNDATION</span>
+    <>
+      <footer className="footer">
+        <div className="footer-main">
+          <div className="container footer-grid">
+            {/* Brand */}
+            <div className="footer-brand">
+              <div className="footer-logo">
+                <img src="/logo.png" alt="AVISKAR FOUNDATION Logo" className="footer-logo-img" />
+                <div className="footer-logo-text">
+                  <span className="footer-logo-main">AVISKAR</span>
+                  <span className="footer-logo-sub">FOUNDATION</span>
+                </div>
+              </div>
+              <p className="footer-desc">
+                A non-profit organization working towards education, healthcare, women empowerment, and environmental sustainability for a better future.
+              </p>
+              <div className="footer-contact-mini">
+                <div><FaMapMarkerAlt /> Amravati, Maharashtra – 444606</div>
+                <div>
+                  <FaWhatsapp style={{ color: '#25D366' }} />
+                  <a
+                    href="https://wa.me/917020143007?text=Hello%20AVISKAR%20FOUNDATION%2C%20I%20would%20like%20to%20know%20more%20about%20your%20programs."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: 'inherit', fontWeight: 600 }}
+                  >
+                    +91 70201 43007
+                  </a>
+                  {' / '}
+                  <FaPhone />
+                  <a href="tel:+917020143007" style={{ color: 'inherit' }}>
+                    +91 70201 43007
+                  </a>
+                </div>
+                <div><FaEnvelope /> aviskarfoundation1120@gmail.com</div>
+              </div>
+              <div className="footer-socials">
+                {socials.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="footer-social-link"
+                  >
+                    {s.icon}
+                  </a>
+                ))}
               </div>
             </div>
-            <p className="footer-desc">
-              A non-profit organization working towards education, healthcare, women empowerment, and environmental sustainability for a better future.
-            </p>
-            <div className="footer-contact-mini">
-              <div><FaMapMarkerAlt /> Amravati, Maharashtra – 444606</div>
-              <div>
-                <FaWhatsapp style={{ color: '#25D366' }} />
-                <a
-                  href="https://wa.me/917020143007?text=Hello%20AVISKAR%20FOUNDATION%2C%20I%20would%20like%20to%20know%20more%20about%20your%20programs."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: 'inherit', fontWeight: 600 }}
-                >
-                  +91 70201 43007
-                </a>
-                {' / '}
-                <FaPhone />
-                <a href="tel:+917020143007" style={{ color: 'inherit' }}>
-                  +91 70201 43007
-                </a>
+
+            {/* Quick Links */}
+            <div className="footer-col">
+              <h4 className="footer-col-title">Quick Links</h4>
+              <ul className="footer-links">
+                {quickLinks.map((l) => (
+                  <li key={l.label}><a href={l.href}>{l.label}</a></li>
+                ))}
+                <li>
+                  <button className="footer-link-btn" onClick={() => setIsPrivacyOpen(true)}>
+                    Privacy Policy
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Programs */}
+            <div className="footer-col">
+              <h4 className="footer-col-title">Our Programs</h4>
+              <ul className="footer-links">
+                {programs.map((p) => (
+                  <li key={p}><a href="#programs">{p}</a></li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Newsletter */}
+            <div className="footer-col footer-newsletter">
+              <h4 className="footer-col-title">Stay Updated</h4>
+              <p>Subscribe for our latest news and community stories.</p>
+              <form className="footer-newsletter-form" onSubmit={(e) => e.preventDefault()}>
+                <input type="email" placeholder="Your email address" required />
+                <button type="submit" className="btn btn-primary">Subscribe</button>
+              </form>
+              <div className="footer-ngo-ids">
+                <span>80G / 12A Certified</span>
+                <span>CSR Registered</span>
               </div>
-              <div><FaEnvelope /> aviskarfoundation1120@gmail.com</div>
-            </div>
-            <div className="footer-socials">
-              {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="footer-social-link"
-                >
-                  {s.icon}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="footer-col">
-            <h4 className="footer-col-title">Quick Links</h4>
-            <ul className="footer-links">
-              {quickLinks.map((l) => (
-                <li key={l.label}><a href={l.href}>{l.label}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Programs */}
-          <div className="footer-col">
-            <h4 className="footer-col-title">Our Programs</h4>
-            <ul className="footer-links">
-              {programs.map((p) => (
-                <li key={p}><a href="#programs">{p}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div className="footer-col footer-newsletter">
-            <h4 className="footer-col-title">Stay Updated</h4>
-            <p>Subscribe for our latest news and community stories.</p>
-            <form className="footer-newsletter-form" onSubmit={(e) => e.preventDefault()}>
-              <input type="email" placeholder="Your email address" required />
-              <button type="submit" className="btn btn-primary">Subscribe</button>
-            </form>
-            <div className="footer-ngo-ids">
-              <span>80G / 12A Certified</span>
-              <span>CSR Registered</span>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="footer-bottom">
-        <div className="container footer-bottom-inner">
-          <p>© {new Date().getFullYear()} AVISKAR FOUNDATION. All rights reserved.</p>
-          <p>Made with ❤️ for a better world</p>
+        <div className="footer-bottom">
+          <div className="container footer-bottom-inner">
+            <p>© {new Date().getFullYear()} AVISKAR FOUNDATION. All rights reserved.</p>
+            <div className="footer-bottom-links">
+              <button className="footer-privacy-btn" onClick={() => setIsPrivacyOpen(true)}>
+                Privacy Policy
+              </button>
+            </div>
+            <p>Made with ❤️ for a better world</p>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+
+      <PrivacyPolicyModal isOpen={isPrivacyOpen} onClose={() => setIsPrivacyOpen(false)} />
+    </>
   );
 }

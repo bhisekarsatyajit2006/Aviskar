@@ -131,18 +131,48 @@
   gap: 10px;
 }
 
-.footer-links a {
+.footer-links a,
+.footer-link-btn {
   font-size: 0.85rem;
   color: rgba(255,255,255,0.6);
   transition: all var(--transition);
   display: flex;
   align-items: center;
   gap: 6px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
 }
 
-.footer-links a:hover {
+.footer-links a:hover,
+.footer-link-btn:hover {
   color: var(--secondary);
   transform: translateX(4px);
+}
+
+.footer-bottom-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-privacy-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition);
+}
+
+.footer-privacy-btn:hover {
+  color: var(--secondary);
 }
 
 /* Newsletter */
