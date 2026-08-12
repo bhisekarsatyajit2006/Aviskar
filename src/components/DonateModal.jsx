@@ -10,6 +10,11 @@ import {
 } from 'react-icons/fa';
 import './DonateModal.css';
 
+// API base URL — set VITE_API_URL in production to your deployed backend
+// e.g. https://your-backend.onrender.com
+// Leave empty locally — Vite proxy will forward /api/* to localhost:5000
+const API_BASE = import.meta.env.VITE_API_URL || '';
+
 const presetAmounts = [250, 500, 1000, 2500, 5000];
 
 const causes = [
@@ -117,7 +122,7 @@ export default function DonateModal({ isOpen, onClose, initialAmount = 1000 }) {
       }
 
       // Step 1: Create order on backend
-      const response = await fetch('/api/donate/create-order', {
+      const response = await fetch(`${API_BASE}/api/donate/create-order`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -129,6 +134,14 @@ export default function DonateModal({ isOpen, onClose, initialAmount = 1000 }) {
           cause: selectedCause,
         }),
       });
+
+      // Guard: if response is HTML (backend unreachable), give a clear error
+      const contentType = response.headers.get('content-type') || '';
+      if (!contentType.includes('application/json')) {
+        throw new Error(
+          'Payment server is not reachable. Please try again later or contact support.'
+        );
+      }
 
       const orderData = await response.json();
 
@@ -149,7 +162,7 @@ export default function DonateModal({ isOpen, onClose, initialAmount = 1000 }) {
           try {
             setLoading(true);
             // Step 3: Verify payment signature on backend
-            const verifyRes = await fetch('/api/donate/verify-payment', {
+            const verifyRes = await fetch(`${API_BASE}/api/donate/verify-payment`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
