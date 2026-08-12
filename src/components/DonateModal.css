@@ -1,0 +1,500 @@
+/* Donate Modal Styles */
+.donate-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  animation: fadeInModal 0.25s ease-out forwards;
+}
+
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.donate-modal-card {
+  position: relative;
+  background: #ffffff;
+  width: 100%;
+  max-width: 540px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(14, 122, 82, 0.1);
+  padding: 2.25rem 2rem;
+  animation: slideUpModal 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUpModal {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.donate-modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: #f1f5f9;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.donate-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  transform: rotate(90deg);
+}
+
+/* Modal Header */
+.modal-header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.modal-heart-icon {
+  width: 52px;
+  height: 52px;
+  background: #edf7f2;
+  color: #0e7a52;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 0.75rem;
+  box-shadow: 0 4px 12px rgba(14, 122, 82, 0.15);
+}
+
+.modal-header h2 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.35rem;
+}
+
+.modal-header p {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* Form Controls */
+.donate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.input-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.amt-chip {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.65rem 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.amt-chip:hover {
+  border-color: #0e7a52;
+  color: #0e7a52;
+  background: #edf7f2;
+}
+
+.amt-chip.active {
+  background: #0e7a52;
+  border-color: #0e7a52;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(14, 122, 82, 0.25);
+}
+
+.custom-amt-box {
+  animation: fadeInModal 0.2s ease;
+}
+
+.input-prefix-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-prefix-wrapper .prefix {
+  position: absolute;
+  left: 1rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #0e7a52;
+}
+
+.custom-input {
+  padding-left: 2.25rem !important;
+  font-size: 1.1rem !important;
+  font-weight: 600;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #0f172a;
+  outline: none;
+  transition: all 0.2s ease;
+  background: #ffffff;
+}
+
+.form-input:focus {
+  border-color: #0e7a52;
+  box-shadow: 0 0 0 3px rgba(14, 122, 82, 0.15);
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+/* Security Notice */
+.security-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-size: 0.825rem;
+  color: #64748b;
+}
+
+.lock-icon,
+.shield-icon {
+  color: #0e7a52;
+}
+
+/* Submit Button */
+.donate-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  background: linear-gradient(135deg, #0e7a52 0%, #0a5d3e 100%);
+  color: #ffffff;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(14, 122, 82, 0.3);
+  transition: all 0.25s ease;
+  margin-top: 0.5rem;
+}
+
+.donate-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(14, 122, 82, 0.4);
+}
+
+.donate-submit-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error Alert */
+.donate-error-alert {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Receipt View */
+.donate-receipt-view {
+  text-align: center;
+}
+
+.receipt-header {
+  margin-bottom: 1.5rem;
+}
+
+.success-icon-badge {
+  width: 64px;
+  height: 64px;
+  background: #dcfce7;
+  color: #16a34a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem;
+  margin: 0 auto 0.75rem;
+  animation: bounceSuccess 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes bounceSuccess {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.receipt-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.receipt-subtitle {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.receipt-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.receipt-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.receipt-logo img {
+  height: 28px;
+  width: auto;
+}
+
+.receipt-logo span {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #0e7a52;
+}
+
+.receipt-badge {
+  display: inline-block;
+  background: #e2e8f0;
+  color: #334155;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.receipt-amount-display {
+  text-align: center;
+  padding: 0.75rem;
+  background: #ffffff;
+  border: 1.5px dashed #0e7a52;
+  border-radius: 10px;
+  margin-bottom: 1.25rem;
+}
+
+.receipt-amount-display .cur {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0e7a52;
+  margin-right: 0.25rem;
+}
+
+.receipt-amount-display .val {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0e7a52;
+}
+
+.receipt-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 0.4rem;
+}
+
+.receipt-row .lbl {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.receipt-row .val {
+  color: #0f172a;
+  font-weight: 600;
+  text-align: right;
+}
+
+.receipt-row .code {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #475569;
+}
+
+.status-paid {
+  color: #16a34a !important;
+}
+
+.receipt-footer-text {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.775rem;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.receipt-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-print {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  color: #334155;
+  padding: 0.75rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-print:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.btn-done {
+  flex: 1;
+  background: #0e7a52;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-done:hover {
+  background: #0a5d3e;
+}
+
+@media (max-width: 540px) {
+  .donate-modal-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .amount-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Print styles for Receipt */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-receipt,
+  #printable-receipt * {
+    visibility: visible;
+  }
+  #printable-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}

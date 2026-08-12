@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { FaHeart, FaHandsHelping, FaArrowDown } from 'react-icons/fa';
 import './Hero.css';
 
-export default function Hero() {
+export default function Hero({ onOpenDonate }) {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -13,6 +13,14 @@ export default function Hero() {
   const scrollTo = (id) => {
     const el = document.querySelector(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleDonateClick = () => {
+    if (onOpenDonate) {
+      onOpenDonate(1000);
+    } else {
+      scrollTo('#get-involved');
+    }
   };
 
   return (
@@ -42,7 +50,7 @@ export default function Hero() {
           </p>
 
           <div className="hero-actions">
-            <button className="btn btn-secondary hero-btn" onClick={() => scrollTo('#get-involved')}>
+            <button className="btn btn-secondary hero-btn" onClick={handleDonateClick}>
               <FaHeart />
               Donate Now
             </button>

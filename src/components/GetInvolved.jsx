@@ -32,7 +32,14 @@ const ways = [
   },
 ];
 
-export default function GetInvolved() {
+export default function GetInvolved({ onOpenDonate }) {
+  const handleCardClick = (e, way) => {
+    if (way.title === 'Donate') {
+      e.preventDefault();
+      if (onOpenDonate) onOpenDonate(1000);
+    }
+  };
+
   return (
     <section className="get-involved section-padding" id="get-involved">
       <div className="container">
@@ -60,7 +67,11 @@ export default function GetInvolved() {
               <div className="gi-icon">{w.emoji}</div>
               <h3 className="gi-title">{w.title}</h3>
               <p className="gi-desc">{w.desc}</p>
-              <a href="#contact" className="gi-btn">
+              <a
+                href="#contact"
+                className="gi-btn"
+                onClick={(e) => handleCardClick(e, w)}
+              >
                 {w.cta} <FaArrowRight />
               </a>
             </div>

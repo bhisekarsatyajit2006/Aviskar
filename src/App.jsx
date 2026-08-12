@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 import './index.css';
 import './App.css';
@@ -15,8 +15,17 @@ import Testimonials from './components/Testimonials';
 import News from './components/News';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import DonateModal from './components/DonateModal';
 
 function App() {
+  const [isDonateOpen, setIsDonateOpen] = useState(false);
+  const [donateAmount, setDonateAmount] = useState(1000);
+
+  const handleOpenDonate = (amount = 1000) => {
+    setDonateAmount(amount);
+    setIsDonateOpen(true);
+  };
+
   useEffect(() => {
     // Intersection Observer for scroll animations
     const observe = (selectors, options = {}) => {
@@ -53,27 +62,22 @@ function App() {
     };
   }, []);
 
-  const scrollToContact = () => {
-    const el = document.querySelector('#get-involved');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className="app">
-      <Navbar />
+      <Navbar onOpenDonate={handleOpenDonate} />
       <main>
-        <Hero />
+        <Hero onOpenDonate={handleOpenDonate} />
         <PhotoMarquee />
         <About />
         <Programs />
         <Impact />
         <Gallery />
-        <GetInvolved />
+        <GetInvolved onOpenDonate={handleOpenDonate} />
         <Testimonials />
         <News />
         <Contact />
       </main>
-      <Footer />
+      <Footer onOpenDonate={handleOpenDonate} />
 
       {/* Floating Action Buttons */}
       <div className="floating-actions">
@@ -88,10 +92,21 @@ function App() {
           <FaWhatsapp />
         </a>
 
-        <button className="float-donate-btn" onClick={scrollToContact} aria-label="Donate Now">
+        <button
+          className="float-donate-btn"
+          onClick={() => handleOpenDonate(1000)}
+          aria-label="Donate Now"
+        >
           ❤️ Donate
         </button>
       </div>
+
+      {/* Razorpay Donation Modal */}
+      <DonateModal
+        isOpen={isDonateOpen}
+        onClose={() => setIsDonateOpen(false)}
+        initialAmount={donateAmount}
+      />
     </div>
   );
 }

@@ -11,7 +11,7 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ onOpenDonate }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('#home');
@@ -27,6 +27,14 @@ export default function Navbar() {
     setMenuOpen(false);
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleDonateClick = (e) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    if (onOpenDonate) {
+      onOpenDonate(1000);
+    }
   };
 
   return (
@@ -53,14 +61,14 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <a
-              href="#get-involved"
+            <button
               className="navbar-donate-btn"
-              onClick={() => handleNavClick('#get-involved')}
+              onClick={handleDonateClick}
+              style={{ cursor: 'pointer', border: 'none', font: 'inherit' }}
             >
               <FaHeart />
               Donate Now
-            </a>
+            </button>
           </li>
         </ul>
 
