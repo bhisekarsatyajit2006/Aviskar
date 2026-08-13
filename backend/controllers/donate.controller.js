@@ -1,5 +1,6 @@
 import crypto from 'crypto';
 import { razorpay, key_id, key_secret } from '../config/razorpay.js';
+import Payment from '../models/Payment.js';
 
 // GET /api/donate/key — return public Razorpay Key ID
 export const getKey = (req, res) => {
@@ -54,7 +55,7 @@ export const createOrder = async (req, res) => {
 };
 
 // POST /api/donate/verify-payment — verify Razorpay HMAC signature
-export const verifyPayment = (req, res) => {
+export const verifyPayment = async (req, res) => {
   try {
     const { razorpay_order_id, razorpay_payment_id, razorpay_signature, donorInfo } = req.body;
 
@@ -84,6 +85,25 @@ export const verifyPayment = (req, res) => {
       order_id: razorpay_order_id,
       donorInfo,
     });
+
+    // ── Persist to MongoDB ────────────────────────────────────────
+    // Non-blocking: if DB save fails, payment is still confirmed (already captured by Razorpay)
+    try {
+      await Payment.create({
+        paymentId: razorpay_payment_id,
+        orderId: razorpay_order_id,
+        amount: donorInfo?.amount ?? 0,
+        currency: 'INR',
+        donorName: donorInfo?.name ?? '',
+        donorEmail: donorInfo?.email ?? '',
+        donorPhone: donorInfo?.phone ?? '',
+        cause: donorInfo?.cause ?? 'General Donation',
+        status: 'verified',
+      });
+      console.log('[verifyPayment] 💾 Payment saved to DB:', razorpay_payment_id);
+    } catch (dbError) {
+      console.error('[verifyPayment] ⚠️  DB save failed (payment still verified):', dbError.message);
+    }
 
     return res.status(200).json({
       success: true,
