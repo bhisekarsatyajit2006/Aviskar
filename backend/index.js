@@ -14,6 +14,17 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// ── Ensure DB is connected on every request (cached after first connect) ──
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error('DB connection failed:', err.message);
+    res.status(503).json({ success: false, message: 'Database unavailable. Please try again.' });
+  }
+});
+
 // ── Health Check ───────────────────────────────────────────────
 app.get('/api/health', (req, res) => {
   res.json({
@@ -31,10 +42,13 @@ app.use((req, res) => {
   res.status(404).json({ success: false, message: `Route not found: ${req.originalUrl}` });
 });
 
-// ── Connect DB, then Start Server ──────────────────────────────
-connectDB().then(() => {
+// ── Local dev: start the server (Vercel handles this in production) ─
+if (process.env.VERCEL !== '1') {
   app.listen(PORT, () => {
     console.log(`🚀  AVISKAR Foundation server → http://localhost:${PORT}`);
     console.log(`✅  Razorpay Key: ${process.env.RAZORPAY_KEY_ID}`);
   });
-});
+}
+
+// ── Export for Vercel serverless ───────────────────────────────
+export default app;
