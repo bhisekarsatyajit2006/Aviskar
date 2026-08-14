@@ -68,7 +68,6 @@ export default function Programs() {
               <div className="prog-card-icon">
                 {p.icon}
               </div>
-              <div className="prog-card-emoji">{p.emoji}</div>
               <h3 className="prog-card-title">{p.title}</h3>
               <p className="prog-card-desc">{p.desc}</p>
               <div className="prog-card-stat">{p.stat}</div>
