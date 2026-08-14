@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
+import { FaGraduationCap, FaHeartbeat, FaTree, FaHandsHelping, FaHeart } from 'react-icons/fa';
 import './Impact.css';
 
 const stats = [
-  { target: 500, suffix: '+', label: 'Students Supported', icon: '📚' },
-  { target: 150, suffix: '+', label: 'Medical Camps', icon: '🏥' },
-  { target: 3000, suffix: '+', label: 'Trees Planted', icon: '🌱' },
-  { target: 100, suffix: '+', label: 'Volunteers', icon: '🤝' },
+  { target: 500, suffix: '+', label: 'Students Supported', icon: <FaGraduationCap /> },
+  { target: 150, suffix: '+', label: 'Medical Camps', icon: <FaHeartbeat /> },
+  { target: 3000, suffix: '+', label: 'Trees Planted', icon: <FaTree /> },
+  { target: 100, suffix: '+', label: 'Volunteers Enrolled', icon: <FaHandsHelping /> },
+  { target: 5000, suffix: '+', label: 'Lives Empowered', icon: <FaHeart /> },
 ];
 
 function CountUp({ target, suffix, started }) {

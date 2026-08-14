@@ -9,6 +9,7 @@ import PhotoMarquee from './components/PhotoMarquee';
 import About from './components/About';
 import Programs from './components/Programs';
 import Impact from './components/Impact';
+import StoriesOfChange from './components/StoriesOfChange';
 import Gallery from './components/Gallery';
 import GetInvolved from './components/GetInvolved';
 import Testimonials from './components/Testimonials';
@@ -71,6 +72,7 @@ function App() {
         <About />
         <Programs />
         <Impact />
+        <StoriesOfChange />
         <Gallery />
         <GetInvolved onOpenDonate={handleOpenDonate} />
         <Testimonials />

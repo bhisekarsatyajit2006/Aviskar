@@ -7,6 +7,7 @@ const programs = [
     emoji: '📚',
     title: 'Education',
     desc: 'Free tuition, book distribution, career counseling and scholarships for underprivileged children.',
+    stat: '500+ Students Supported',
     color: '#0E7A52',
     bg: '#EDF7F2',
   },
@@ -15,6 +16,7 @@ const programs = [
     emoji: '🏥',
     title: 'Healthcare',
     desc: 'Free medical camps, health check-ups, HIV/AIDS awareness, and eye & dental care services.',
+    stat: '150+ Camps Conducted',
     color: '#dc2626',
     bg: '#fef2f2',
   },
@@ -23,6 +25,7 @@ const programs = [
     emoji: '👩',
     title: 'Women Empowerment',
     desc: 'Skill development, leadership workshops, and self-help groups for women\'s financial independence.',
+    stat: '300+ Women Empowered',
     color: '#7c3aed',
     bg: '#f5f3ff',
   },
@@ -31,6 +34,7 @@ const programs = [
     emoji: '🌱',
     title: 'Environment',
     desc: 'Native tree plantation, water conservation, and environmental sustainability awareness drives.',
+    stat: '3,000+ Trees Planted',
     color: '#059669',
     bg: '#ecfdf5',
   },
@@ -67,6 +71,7 @@ export default function Programs() {
               <div className="prog-card-emoji">{p.emoji}</div>
               <h3 className="prog-card-title">{p.title}</h3>
               <p className="prog-card-desc">{p.desc}</p>
+              <div className="prog-card-stat">{p.stat}</div>
               <div className="prog-card-arrow">
                 <FaArrowRight />
               </div>
