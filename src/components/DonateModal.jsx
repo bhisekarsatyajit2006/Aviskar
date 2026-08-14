@@ -442,7 +442,7 @@ export default function DonateModal({ isOpen, onClose, initialAmount = 1000 }) {
                 <label className="input-label">Full Name *</label>
                 <input
                   type="text"
-                  placeholder="e.g. Satyajit Bhise"
+                  placeholder="Enter Your Name"
                   value={donorName}
                   onChange={(e) => setDonorName(e.target.value)}
                   className="form-input"
